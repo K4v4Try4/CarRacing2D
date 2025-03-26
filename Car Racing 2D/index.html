@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" type="image/x-icon" href="./Images/Favicons/favicon.png">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <script src="./JavaScript/Model/Entity.js"></script>
+        <script src="./JavaScript/Model/Field.js"></script>
+        <script src="./JavaScript/Model/HitBox.js"></script>
+        <script src="./JavaScript/Model/Obstacle.js"></script>
+        <script src="./JavaScript/Model/Player.js"></script>
+        <script src="./JavaScript/script.js"></script>
+        <title>Car Racing 2D</title>
+    </head>
+    <body>
+        <div class="settinsBgExternal">
+            <!-- HOME -->
+            <div class="settinsBgInternalHome">
+                <label for="name">Inserisci il tuo nome:</label>
+                <input type="text" id="nome" name="name" placeholder="Giangiannino" value="Giangiannino">
+                <div class="btns">
+                    <button id="play">PLAY</button>
+                    <button id="volume">VOLUME</button>
+                    <button id="regole">REGOLE</button>
+                    <button id="tasti">TASTI</button>
+                </div>
+            </div>
+            <!-- TASTI -->
+            <div class="settinsBgInternalTasti nascondi">
+                <h1 class="centraTitolo">Scegli i tasti che desideri</h1>
+                <label for="upMove">Muoviti in avanti</label>
+                <input type="text" id="upMove" name="upMove" value="ArrowRight">
+                <label for="downMove">Muoviti indietro</label>
+                <input type="text" id="downMove" name="downMove" value="ArrowLeft">
+                <label for="rightMove">Muoviti a destra</label>
+                <input type="text" id="rightMove" name="rightMove" value="ArrowUp">
+                <label for="leftMove">Muoviti a sinistra</label>
+                <input type="text" id="leftMove" name="leftMove" value="ArrowDown">
+                <button id="btIndietroTasti" class="btnCentrato small"> INDIETRO </button>
+            </div>
+            <!-- REGOLE -->
+            <div class="settinsBgInternalRegole nascondi">
+                <h1 class="centraTitolo">REGOLE</h1>
+                <p>
+                    Preparati a una corsa contro il tempo, poich&eacute ogni pochi secondi nuovi veicoli si materializzeranno davanti a te, ognuno con la propria velocit&agrave; e traiettoria. 
+                    Dovrai fare affidamento sulla tua abilit&agrave; nel premere i tasti della tastiera per manovrare la tua macchina, evitando con destrezza gli ostacoli in rapida successione.
+                    Ricorda, la tua sopravvivenza dipende da tre preziose vite. 
+                    Se un veicolo dovesse colpirti, perderai una vita e la tua macchina subire; una decelerazione temporanea. 
+                    Prova a fare il tuo punteggio migliore per dimostrare a tutti quanti chi &egrave; il migliore.
+                    La radio della tua macchina &egrave; rotta e sta riproducendo in loop la melodia incalzante dei Rondò Veneziano. 
+                    Mentre ti sforzi di rimanere in pista il più a lungo possibile, a musica coinvolgente aggiunge un elemento di sfida e stravaganza all'esperienza. 
+                    Se sei in difficolt&agrave;, ricordati che puoi mettere in pausa il gioco o cliccando il sombolo delle impostazioni in alto a destra oppure premendo il tasto "esc".
+                </p>
+                <button id="btIndietroRegole" class="small"> INDIETRO </button>
+            </div>
+            <!--  VOLUME-->
+            <div class="settinsBgInternalVolume nascondi">
+                <h1 class="centraTitolo">Volume</h1>
+                <button id="minus">-</button>
+                <div class="setVolume">
+                    <label for="vol">0 - 100</label>
+                    <input type="range" id="vol" name="vol" min="0" max="100">
+                </div>
+                <button id="plus">+</button>
+                <audio id="audio" class="nascondi" id="audioPlayer" controls autoplay>
+                    <source src="./Audio/RondòVeneziano.mp3" type="audio/mpeg">
+                    <source src="./Audio/RondòVeneziano.mp3" type="audio/ogg">
+                    <source src="./Audio/RondòVeneziano.mp3" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <button id="btIndietroVolume" class="btnCentrato small">INDIETRO</button>
+            </div>
+        </div>
+        <!-- GAME -->
+        <canvas class="nascondi" id="canvas"></canvas>
+        <p class="namePlayer nascondi"></p>
+        <!-- LAST SAVE -->
+        <div class="lastSave">
+            <p id="lastSaveNome">Nome: Unknown</p>
+            <p id="lastSavePunti">Punteggio: 0</p>
+
+        </div>
+        <!-- MENU IN GAME -->
+        <button class="btnSettings nascondi"><i class="fas fa-cog"></i></button>
+        <div class="settinsWrap nascondi">
+            <div class="settinsBgExternalInGame">
+                <div class="settinsBgInternalInGame">
+                    <button id="btVolumeInGame">Volume</button>
+                    <button id="btTastiInGame">Tasti</button>
+                    <button id="btRegoleInGame">Regole</button>
+                    <button id="btRicominciaInGame">Ricomincia</button>
+                    <button id="btAbbandonaInGame">Abbandona</button>
+                </div>
+            </div>
+        </div>
+        <!-- GAME OVER -->
+        <img class="nascondi" id="gameOver" src="./Images/Sprite/gameOver.png" alt="game over">
+    </body>
+</html>
